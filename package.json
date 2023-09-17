@@ -1,0 +1,16 @@
+{
+  "name": "odin-weatherapp",
+  "version": "1.0.0",
+  "description": "This is a Weather App I am creating while going through The Odin Project.  I will be practicing using an API as well as using asynchronous code.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
