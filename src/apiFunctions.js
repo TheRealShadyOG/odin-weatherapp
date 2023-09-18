@@ -100,7 +100,21 @@ async function getForecastsWeather(location) {
 }
 
 // Get location
+async function getLocationData(location) {
+  const data = await fetchForecast(location);
+  const locationData = data.location;
+  console.log(locationData);
+  const country = locationData.country;
+  const city = locationData.name;
+  const localTime = locationData.localtime;
+  const locationInfo = {
+    country,
+    city,
+    localTime,
+  };
+  console.log(locationInfo);
+}
 
 // Get astronomy
 
-export { getCurrentWeather, getForecastsWeather, getForecastData };
+export { getCurrentWeather, getForecastsWeather, getLocationData };
