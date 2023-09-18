@@ -106,12 +106,37 @@ async function getForecast2(location) {
   return forecastDay2;
 }
 
+async function getForecastHourly(location) {
+  const forecast = await getForecastData(location);
+  const today = forecast.forecastday[0].hour;
+  const hourly = [];
+  today.forEach((ele, i) => {
+    const condition = ele.condition.text;
+    const fahrenheit = {
+      feelsLike: ele.feelslike_f,
+      temp: ele.temp_f,
+    };
+    const celsius = {
+      feelsLike: ele.feelslike_c,
+      temp: ele.temp_c,
+    };
+    i = {
+      condition,
+      fahrenheit,
+      celsius,
+    };
+    hourly.push(i);
+  });
+  return hourly;
+}
+
 async function getForecastsWeather(location) {
   const day0 = await getForecast0(location);
   const day1 = await getForecast1(location);
   const day2 = await getForecast2(location);
+  const hourly = await getForecastHourly(location);
 
-  const forecast = await Promise.all([day0, day1, day2]);
+  const forecast = await Promise.all([day0, day1, day2, hourly]);
   console.log(forecast);
 }
 
