@@ -4,7 +4,9 @@
   "description": "This is a Weather App I am creating while going through The Odin Project.  I will be practicing using an API as well as using asynchronous code.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "keywords": [],
   "author": "",
