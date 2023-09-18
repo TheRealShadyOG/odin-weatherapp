@@ -40,70 +40,31 @@ async function getForecastData(location) {
   return forecastData;
 }
 
-async function getForecast0(location) {
+async function getForecastDaily(location) {
   const forecast = await getForecastData(location);
-  const thisDay = forecast.forecastday[0].day;
-  const rainChance = thisDay.daily_chance_of_rain;
-  const fahrenheit = {
-    average: thisDay.avgtemp_f,
-    high: thisDay.maxtemp_f,
-    low: thisDay.mintemp_f,
-  };
-  const celsius = {
-    average: thisDay.avgtemp_c,
-    high: thisDay.maxtemp_c,
-    low: thisDay.mintemp_c,
-  };
-  const forecastDay0 = {
-    rainChance,
-    fahrenheit,
-    celsius,
-  };
-  return forecastDay0;
-}
-
-async function getForecast1(location) {
-  const forecast = await getForecastData(location);
-  const thisDay = forecast.forecastday[1].day;
-  const rainChance = thisDay.daily_chance_of_rain;
-  const fahrenheit = {
-    average: thisDay.avgtemp_f,
-    high: thisDay.maxtemp_f,
-    low: thisDay.mintemp_f,
-  };
-  const celsius = {
-    average: thisDay.avgtemp_c,
-    high: thisDay.maxtemp_c,
-    low: thisDay.mintemp_c,
-  };
-  const forecastDay1 = {
-    rainChance,
-    fahrenheit,
-    celsius,
-  };
-  return forecastDay1;
-}
-
-async function getForecast2(location) {
-  const forecast = await getForecastData(location);
-  const thisDay = forecast.forecastday[2].day;
-  const rainChance = thisDay.daily_chance_of_rain;
-  const fahrenheit = {
-    average: thisDay.avgtemp_f,
-    high: thisDay.maxtemp_f,
-    low: thisDay.mintemp_f,
-  };
-  const celsius = {
-    average: thisDay.avgtemp_c,
-    high: thisDay.maxtemp_c,
-    low: thisDay.mintemp_c,
-  };
-  const forecastDay2 = {
-    rainChance,
-    fahrenheit,
-    celsius,
-  };
-  return forecastDay2;
+  const days = forecast.forecastday;
+  const daily = [];
+  days.forEach((ele) => {
+    const thisDay = ele.day;
+    const rainChance = thisDay.daily_chance_of_rain;
+    const fahrenheit = {
+      average: thisDay.avgtemp_f,
+      high: thisDay.maxtemp_f,
+      low: thisDay.mintemp_f,
+    };
+    const celsius = {
+      average: thisDay.avgtemp_c,
+      high: thisDay.maxtemp_c,
+      low: thisDay.mintemp_c,
+    };
+    const day = {
+      rainChance,
+      fahrenheit,
+      celsius,
+    };
+    daily.push(day);
+  });
+  return daily;
 }
 
 async function getForecastHourly(location) {
@@ -120,23 +81,21 @@ async function getForecastHourly(location) {
       feelsLike: ele.feelslike_c,
       temp: ele.temp_c,
     };
-    i = {
+    const hour = {
       condition,
       fahrenheit,
       celsius,
     };
-    hourly.push(i);
+    hourly.push(hour);
   });
   return hourly;
 }
 
 async function getForecastsWeather(location) {
-  const day0 = await getForecast0(location);
-  const day1 = await getForecast1(location);
-  const day2 = await getForecast2(location);
+  const daily = await getForecastDaily(location);
   const hourly = await getForecastHourly(location);
 
-  const forecast = await Promise.all([day0, day1, day2, hourly]);
+  const forecast = await Promise.all([daily, hourly]);
   console.log(forecast);
 }
 
@@ -144,4 +103,4 @@ async function getForecastsWeather(location) {
 
 // Get astronomy
 
-export { getCurrentWeather, getForecastsWeather };
+export { getCurrentWeather, getForecastsWeather, getForecastData };
