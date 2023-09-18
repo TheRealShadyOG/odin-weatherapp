@@ -103,7 +103,6 @@ async function getForecastsWeather(location) {
 async function getLocationData(location) {
   const data = await fetchForecast(location);
   const locationData = data.location;
-  console.log(locationData);
   const country = locationData.country;
   const city = locationData.name;
   const localTime = locationData.localtime;
@@ -116,5 +115,24 @@ async function getLocationData(location) {
 }
 
 // Get astronomy
+async function getAstronomyData(location) {
+  const data = await fetchForecast(location);
+  const thisDay = data.forecast.forecastday[0];
+  const astronomyData = thisDay.astro;
+  const sunrise = astronomyData.sunrise;
+  const sunset = astronomyData.sunset;
+  const moonPhase = astronomyData.moon_phase;
+  const astronomyInfo = {
+    sunrise,
+    sunset,
+    moonPhase,
+  };
+  console.log(astronomyInfo);
+}
 
-export { getCurrentWeather, getForecastsWeather, getLocationData };
+export {
+  getCurrentWeather,
+  getForecastsWeather,
+  getLocationData,
+  getAstronomyData,
+};
