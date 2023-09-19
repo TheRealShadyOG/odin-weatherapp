@@ -20,7 +20,7 @@ function updateLocation() {
   const searchBar = document.querySelector('input');
   const newLocation = searchBar.value;
   location = newLocation;
-  console.log(location);
+  loadWeather(location, unit);
 }
 
 // Display data about location
