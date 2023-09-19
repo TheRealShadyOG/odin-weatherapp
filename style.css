@@ -165,3 +165,12 @@ body {
   font-size: 2vh;
   text-align: center;
 }
+
+#tempchange {
+  position: absolute;
+  font-size: 2vh;
+  left: -24px;
+  bottom: 0;
+  color: #155e75;
+  cursor: pointer;
+}
