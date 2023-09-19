@@ -117,7 +117,7 @@ async function getLocationData(location) {
     city,
     localTime,
   };
-  console.log(locationInfo);
+  return locationInfo;
 }
 
 // Get astronomy
