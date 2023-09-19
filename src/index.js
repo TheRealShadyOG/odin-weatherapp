@@ -90,6 +90,52 @@ function getDailyCelsius(div, data) {
   avg.textContent = 'Avg ' + avgTemp;
 }
 
+// Display Hourly forecast data
+async function displayHourlyForecast(location, unit) {
+  const forecastData = await getForecastsWeather(location);
+  const hourlyData = forecastData[1];
+  const containers = document.querySelectorAll('#forecasthour');
+  console.log(hourlyData);
+
+  containers.forEach((ele, i) => {
+    // Add each time
+    const hour = hourlyData[i].time;
+    const timeDiv = ele.children[0];
+    timeDiv.textContent = hour;
+    // Add each condition
+    const hourCondition = hourlyData[i].condition;
+    const conditionDiv = ele.children[1];
+    conditionDiv.textContent = hourCondition;
+    // Add each temp
+    const tempDiv = ele.children[2];
+    if (unit === 'F') {
+      getTempsFahrenheit(tempDiv, hourlyData[i]);
+    } else {
+      getTempsCelsius(tempDiv, hourlyData[i]);
+    }
+  });
+}
+
+function getTempsFahrenheit(div, data) {
+  const temps = data.fahrenheit;
+  const feelsLikeDiv = div.children[0];
+  const feelsLikeTemp = 'Feels Like ' + temps.feelsLike;
+  feelsLikeDiv.textContent = feelsLikeTemp;
+  const realDiv = div.children[1];
+  const realTemp = 'Real Temp ' + temps.temp;
+  realDiv.textContent = realTemp;
+}
+
+function getTempsCelsius(div, data) {
+  const temps = data.celsius;
+  const feelsLikeDiv = div.children[0];
+  const feelsLikeTemp = 'Feels Like ' + temps.feelsLike;
+  feelsLikeDiv.textContent = feelsLikeTemp;
+  const realDiv = div.children[1];
+  const realTemp = 'Real Temp ' + temps.temp;
+  realDiv.textContent = realTemp;
+}
+
 // Display Astronomy data
 async function displayAstronomy(location) {
   const astronomyData = await getAstronomyData(location);
@@ -106,6 +152,7 @@ async function displayAstronomy(location) {
 
 displayLocation(location);
 displayDailyForecast(location, 'F');
+displayHourlyForecast(location, '');
 displayAstronomy(location);
 
 // Temporary function calls
