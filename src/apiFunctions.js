@@ -48,7 +48,6 @@ async function getForecastDaily(location) {
     const thisDay = ele.day;
     const date = ele.date;
     const condition = thisDay.condition.text;
-    const rainChance = thisDay.daily_chance_of_rain;
     const fahrenheit = {
       average: thisDay.avgtemp_f,
       high: thisDay.maxtemp_f,
@@ -62,7 +61,6 @@ async function getForecastDaily(location) {
     const day = {
       date,
       condition,
-      rainChance,
       fahrenheit,
       celsius,
     };
