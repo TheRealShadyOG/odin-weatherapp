@@ -112,22 +112,25 @@ function createForecastDaySection() {
 }
 
 function createAstronomySection() {
-  const left = document.querySelector('#left');
+  const middle = document.querySelector('#middle');
 
   const astronomy = document.createElement('div');
   astronomy.setAttribute('id', 'astronomy');
 
+  const sun = document.createElement('div');
+  sun.setAttribute('id', 'sun');
   const sunrise = document.createElement('div');
   sunrise.setAttribute('id', 'sunrise');
   const sunset = document.createElement('div');
   sunset.setAttribute('id', 'sunset');
+  sun.appendChild(sunrise);
+  sun.appendChild(sunset);
   const moonPhase = document.createElement('div');
   moonPhase.setAttribute('id', 'moonphase');
 
-  astronomy.appendChild(sunrise);
-  astronomy.appendChild(sunset);
+  astronomy.appendChild(sun);
   astronomy.appendChild(moonPhase);
-  left.appendChild(astronomy);
+  middle.appendChild(astronomy);
 }
 
 function loadPage() {
