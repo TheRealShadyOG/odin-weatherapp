@@ -74,3 +74,37 @@ body {
 #localtime {
   font-size: 2vh;
 }
+
+#left {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+}
+
+#daysforecast {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1vw;
+  width: 30vw;
+}
+
+#forecastday {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  color: #155e75;
+}
+
+#dayforecastdate {
+  font-size: 2.5vh;
+}
+
+#dayforecastcondition {
+  font-size: 1.6vh;
+}
+
+#dayforecasttemp {
+  font-size: 1.3vh;
+}
