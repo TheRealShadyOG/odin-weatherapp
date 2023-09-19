@@ -109,7 +109,11 @@ async function getForecastsWeather(location) {
 async function getLocationData(location) {
   const data = await fetchForecast(location);
   const locationData = data.location;
-  const country = locationData.country;
+  let country = locationData.country;
+  // if in USA change country to = state
+  if (country === 'United States of America') {
+    country = locationData.region;
+  }
   const city = locationData.name;
   const localTime = locationData.localtime;
   const locationInfo = {
