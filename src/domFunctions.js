@@ -1,14 +1,17 @@
 function createForm() {
   const body = document.querySelector('body');
 
+  const form = document.createElement('div');
+  form.setAttribute('id', 'form');
   const input = document.createElement('input');
   input.setAttribute('type', 'text');
   const search = document.createElement('img');
   search.src = './resources/search.svg';
   search.setAttribute('id', 'search');
 
-  body.appendChild(input);
-  body.appendChild(search);
+  form.appendChild(input);
+  form.appendChild(search);
+  body.appendChild(form);
 }
 
 function createCite() {
@@ -34,8 +37,34 @@ function createCite() {
   body.appendChild(cite);
 }
 
+function createLocationSection() {
+  const body = document.querySelector('body');
+
+  const container = document.createElement('div');
+  container.setAttribute('id', 'locationContainer');
+
+  const location = document.createElement('div');
+  location.setAttribute('id', 'location');
+  const country = document.createElement('span');
+  country.setAttribute('id', 'country');
+  const comma = document.createElement('span');
+  comma.textContent = ', ';
+  const city = document.createElement('span');
+  city.setAttribute('id', 'city');
+  location.appendChild(city);
+  location.appendChild(comma);
+  location.appendChild(country);
+  const localTime = document.createElement('div');
+  localTime.setAttribute('id', 'localtime');
+
+  container.appendChild(location);
+  container.appendChild(localTime);
+  body.appendChild(container);
+}
+
 function loadPage() {
   createForm();
+  createLocationSection();
   createCite();
 }
 
