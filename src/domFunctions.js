@@ -111,11 +111,31 @@ function createForecastDaySection() {
   left.appendChild(daysForecast);
 }
 
+function createAstronomySection() {
+  const left = document.querySelector('#left');
+
+  const astronomy = document.createElement('div');
+  astronomy.setAttribute('id', 'astronomy');
+
+  const sunrise = document.createElement('div');
+  sunrise.setAttribute('id', 'sunrise');
+  const sunset = document.createElement('div');
+  sunset.setAttribute('id', 'sunset');
+  const moonPhase = document.createElement('div');
+  moonPhase.setAttribute('id', 'moonphase');
+
+  astronomy.appendChild(sunrise);
+  astronomy.appendChild(sunset);
+  astronomy.appendChild(moonPhase);
+  left.appendChild(astronomy);
+}
+
 function loadPage() {
   createSideContainers();
   createForm();
   createLocationSection();
   createForecastDaySection();
+  createAstronomySection();
   createCite();
 }
 
