@@ -12,11 +12,27 @@ loadPage();
 let location = 'medina saudi';
 let unit = 'F';
 
+// Eventlistener to change unit
+const tempChange = document.querySelector('#tempchange');
+tempChange.addEventListener('click', changeUnit);
+
+function changeUnit() {
+  if (unit === 'F') {
+    unit = 'C';
+    tempChange.textContent = 'C';
+    loadWeather(location, unit);
+  } else {
+    unit = 'F';
+    tempChange.textContent = 'F';
+    loadWeather(location, unit);
+  }
+}
+
 // Form for searching for location
 const search = document.querySelector('#search');
 search.addEventListener('click', updateLocation);
 
-function updateLocation() {
+async function updateLocation() {
   const searchBar = document.querySelector('input');
   const newLocation = searchBar.value;
   location = newLocation;
