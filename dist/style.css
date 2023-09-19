@@ -140,3 +140,28 @@ body {
 .visible {
   color: #0e7490;
 }
+
+#current {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #0e7490;
+  padding-top: 15vh;
+}
+
+#currenttitle {
+  font-size: 4vh;
+}
+
+#currentcondition {
+  font-size: 3vh;
+}
+
+#currenthumidity {
+  font-size: 1.5vh;
+}
+
+#currenttemp {
+  font-size: 2vh;
+  text-align: center;
+}
