@@ -90,17 +90,23 @@ function getDailyCelsius(div, data) {
   avg.textContent = 'Avg ' + avgTemp;
 }
 
+// Display Astronomy data
+async function displayAstronomy(location) {
+  const astronomyData = await getAstronomyData(location);
+  const sunrise = document.querySelector('#sunrise');
+  const sunriseData = astronomyData.sunrise;
+  sunrise.textContent = 'Sunrise ' + sunriseData;
+  const sunset = document.querySelector('#sunset');
+  const sunsetData = astronomyData.sunset;
+  const moonPhase = document.querySelector('#moonphase');
+  const moonData = astronomyData.moonPhase;
+  moonPhase.textContent = moonData + ' Moon';
+  sunset.textContent = 'Sunset ' + sunsetData;
+}
+
 displayLocation(location);
 displayDailyForecast(location, 'F');
+displayAstronomy(location);
 
 // Temporary function calls
 getCurrentWeather(location);
-getAstronomyData(location);
-
-// console.log(dailyData);
-// dailyData.forEach((ele) => {
-//   const condition = document.querySelector('#dayforecastcondition');
-//   // condition.textContent = ;
-//   const temp = document.querySelector('#dayforecasttemp');
-//   console.log(modifiedDay);
-// });
