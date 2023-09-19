@@ -1,5 +1,5 @@
 function createForm() {
-  const body = document.querySelector('body');
+  const middle = document.querySelector('#middle');
 
   const form = document.createElement('div');
   form.setAttribute('id', 'form');
@@ -13,7 +13,7 @@ function createForm() {
 
   form.appendChild(input);
   form.appendChild(search);
-  body.appendChild(form);
+  middle.appendChild(form);
 }
 
 function createCite() {
@@ -40,7 +40,7 @@ function createCite() {
 }
 
 function createLocationSection() {
-  const body = document.querySelector('body');
+  const middle = document.querySelector('#middle');
 
   const container = document.createElement('div');
   container.setAttribute('id', 'locationContainer');
@@ -61,7 +61,7 @@ function createLocationSection() {
 
   container.appendChild(location);
   container.appendChild(localTime);
-  body.appendChild(container);
+  middle.appendChild(container);
 }
 
 function createSideContainers() {
@@ -69,10 +69,13 @@ function createSideContainers() {
 
   const left = document.createElement('div');
   left.setAttribute('id', 'left');
+  const middle = document.createElement('div');
+  middle.setAttribute('id', 'middle');
   const right = document.createElement('div');
   right.setAttribute('id', 'right');
 
   body.appendChild(left);
+  body.appendChild(middle);
   body.appendChild(right);
 }
 
