@@ -100,7 +100,7 @@ async function getForecastsWeather(location) {
   const hourly = await getForecastHourly(location);
 
   const forecast = await Promise.all([daily, hourly]);
-  console.log(forecast);
+  return forecast;
 }
 
 // Get location
