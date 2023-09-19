@@ -46,6 +46,8 @@ async function getForecastDaily(location) {
   const daily = [];
   days.forEach((ele) => {
     const thisDay = ele.day;
+    const date = ele.date;
+    const condition = thisDay.condition.text;
     const rainChance = thisDay.daily_chance_of_rain;
     const fahrenheit = {
       average: thisDay.avgtemp_f,
@@ -58,6 +60,8 @@ async function getForecastDaily(location) {
       low: thisDay.mintemp_c,
     };
     const day = {
+      date,
+      condition,
       rainChance,
       fahrenheit,
       celsius,
@@ -72,6 +76,7 @@ async function getForecastHourly(location) {
   const today = forecast.forecastday[0].hour;
   const hourly = [];
   today.forEach((ele, i) => {
+    const time = ele.time.slice(-5);
     const condition = ele.condition.text;
     const fahrenheit = {
       feelsLike: ele.feelslike_f,
@@ -82,6 +87,7 @@ async function getForecastHourly(location) {
       temp: ele.temp_c,
     };
     const hour = {
+      time,
       condition,
       fahrenheit,
       celsius,
