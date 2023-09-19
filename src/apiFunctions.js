@@ -30,7 +30,7 @@ async function getCurrentWeather(location) {
     fahrenheit,
     celsius,
   };
-  console.log(currentWeather);
+  return currentWeather;
 }
 
 // Get forecast
