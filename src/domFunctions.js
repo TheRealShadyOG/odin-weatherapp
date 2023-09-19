@@ -141,7 +141,7 @@ function createForecastHourSection() {
 
   for (let i = 0; i < 24; i++) {
     const forecastHour = document.createElement('div');
-    forecastHour.setAttribute('id', 'forecastHour');
+    forecastHour.setAttribute('id', 'forecasthour');
 
     const forecastTime = document.createElement('div');
     forecastTime.setAttribute('id', 'hourforecasttime');
