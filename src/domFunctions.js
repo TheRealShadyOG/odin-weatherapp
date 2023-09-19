@@ -206,25 +206,11 @@ function createHourlyControl() {
   const previous = document.createElement('img');
   previous.src = './resources/previous.svg';
   previous.setAttribute('id', 'previousbutton');
-  const currentCircle = document.createElement('img');
-  currentCircle.src = './resources/circlefilled.svg';
-  currentCircle.setAttribute('id', 'circle0');
-  currentCircle.classList.add('selected');
-  controlButtons.appendChild(previous);
-  controlButtons.appendChild(currentCircle);
-
-  for (let i = 1; i < 8; i++) {
-    const circle = document.createElement('img');
-    circle.src = './resources/circle.svg';
-    circle.setAttribute('id', 'circle' + i);
-    circle.classList.add('unselected');
-    controlButtons.appendChild(circle);
-  }
-
   const next = document.createElement('img');
   next.src = './resources/next.svg';
   next.setAttribute('id', 'nextbutton');
 
+  controlButtons.appendChild(previous);
   controlButtons.appendChild(next);
   hoursForecast.appendChild(controlButtons);
 }
