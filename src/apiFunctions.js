@@ -135,7 +135,7 @@ async function getAstronomyData(location) {
     sunset,
     moonPhase,
   };
-  console.log(astronomyInfo);
+  return astronomyInfo;
 }
 
 export {
