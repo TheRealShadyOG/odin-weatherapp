@@ -113,7 +113,13 @@ async function displayHourlyForecast(location, unit) {
     } else {
       getTempsCelsius(tempDiv, hourlyData[i]);
     }
+    ele.classList.add('hidden');
   });
+
+  for (let i = 0; i < 3; i++) {
+    containers[i].classList.remove('hidden');
+    containers[i].classList.add('visible');
+  }
 }
 
 function getTempsFahrenheit(div, data) {
@@ -152,7 +158,7 @@ async function displayAstronomy(location) {
 
 displayLocation(location);
 displayDailyForecast(location, 'F');
-displayHourlyForecast(location, '');
+displayHourlyForecast(location, 'F');
 displayAstronomy(location);
 
 // Temporary function calls
