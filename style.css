@@ -34,7 +34,7 @@ body {
 #form {
   display: flex;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 16px;
   position: relative;
 }
 
@@ -57,4 +57,20 @@ body {
   position: absolute;
   right: 0;
   bottom: 2px;
+}
+
+#locationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #0e7490;
+  margin-top: 8px;
+}
+
+#location {
+  font-size: 4vh;
+}
+
+#localtime {
+  font-size: 2vh;
 }
