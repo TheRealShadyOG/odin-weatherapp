@@ -5,6 +5,8 @@ function createForm() {
   form.setAttribute('id', 'form');
   const input = document.createElement('input');
   input.setAttribute('type', 'text');
+  input.setAttribute('id', 'searchbar');
+  input.placeholder = 'Search...';
   const search = document.createElement('img');
   search.src = './resources/search.svg';
   search.setAttribute('id', 'search');
