@@ -10,6 +10,8 @@
 }
 
 body {
+  height: 100vh;
+  width: 100vw;
   background-image: url(./resources/background.jpg);
   background-size: 100vw 100vh;
   display: grid;
@@ -97,7 +99,8 @@ body {
   font-size: 1.4vh;
 }
 
-#daysforecast {
+#daysforecast,
+#hoursforecast {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
@@ -105,7 +108,8 @@ body {
   width: 30vw;
 }
 
-#forecastday {
+#forecastday,
+.visible {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -114,14 +118,25 @@ body {
   color: #155e75;
 }
 
-#dayforecastdate {
+#dayforecastdate,
+.visible > div:nth-child(1) {
   font-size: 2.5vh;
 }
 
-#dayforecastcondition {
+#dayforecastcondition,
+.visible > div:nth-child(2) {
   font-size: 1.6vh;
 }
 
-#dayforecasttemp {
+#dayforecasttemp,
+.visible > div:nth-child(3) {
   font-size: 1.3vh;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  color: #0e7490;
 }
