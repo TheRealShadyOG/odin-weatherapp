@@ -133,12 +133,43 @@ function createAstronomySection() {
   middle.appendChild(astronomy);
 }
 
+function createForecastHourSection() {
+  const right = document.querySelector('#right');
+
+  const hoursForecast = document.createElement('div');
+  hoursForecast.setAttribute('id', 'hoursforecast');
+
+  for (let i = 0; i < 24; i++) {
+    const forecastHour = document.createElement('div');
+    forecastHour.setAttribute('id', 'forecastHour');
+
+    const forecastTime = document.createElement('div');
+    forecastTime.setAttribute('id', 'hourforecasttime');
+    const forecastCondition = document.createElement('div');
+    forecastCondition.setAttribute('id', 'hourforecastcondition');
+    const forecastTemp = document.createElement('div');
+    forecastTemp.setAttribute('id', 'hourforecasttemp');
+    const feelsLike = document.createElement('div');
+    const real = document.createElement('div');
+
+    forecastTemp.appendChild(feelsLike);
+    forecastTemp.appendChild(real);
+    forecastHour.appendChild(forecastTime);
+    forecastHour.appendChild(forecastCondition);
+    forecastHour.appendChild(forecastTemp);
+    hoursForecast.appendChild(forecastHour);
+  }
+
+  right.appendChild(hoursForecast);
+}
+
 function loadPage() {
   createSideContainers();
   createForm();
   createLocationSection();
-  createForecastDaySection();
   createAstronomySection();
+  createForecastDaySection();
+  createForecastHourSection();
   createCite();
 }
 
