@@ -174,3 +174,19 @@ body {
   color: #155e75;
   cursor: pointer;
 }
+
+#hoursforecast {
+  position: relative;
+}
+
+#controlbuttons {
+  position: absolute;
+  top: -2vh;
+  display: flex;
+  gap: 2px;
+}
+
+#controlbuttons img {
+  height: 1.5vh;
+  cursor: pointer;
+}
