@@ -112,7 +112,7 @@ function createForecastDaySection() {
 }
 
 function createCurrentSection() {
-  const left = document.querySelector('#left');
+  const body = document.querySelector('body');
 
   const current = document.createElement('div');
   current.setAttribute('id', 'current');
@@ -121,13 +121,15 @@ function createCurrentSection() {
   title.setAttribute('id', 'currenttitle');
   title.textContent = 'Today';
   const condition = document.createElement('div');
-  condition.setAttribute('id', 'condition');
+  condition.setAttribute('id', 'currentcondition');
   const humidity = document.createElement('div');
-  humidity.setAttribute('id', 'humidity');
+  humidity.setAttribute('id', 'currenthumidity');
   const temp = document.createElement('div');
-  temp.setAttribute('id', 'temp');
+  temp.setAttribute('id', 'currenttemp');
   const feelsLike = document.createElement('div');
   const real = document.createElement('div');
+
+  const blank = document.createElement('div');
 
   temp.appendChild(feelsLike);
   temp.appendChild(real);
@@ -135,7 +137,8 @@ function createCurrentSection() {
   current.appendChild(condition);
   current.appendChild(humidity);
   current.appendChild(temp);
-  left.appendChild(current);
+  body.appendChild(blank);
+  body.appendChild(current);
 }
 
 function createAstronomySection() {
@@ -194,10 +197,10 @@ function loadPage() {
   createSideContainers();
   createForm();
   createLocationSection();
-  createCurrentSection();
   createAstronomySection();
   createForecastDaySection();
   createForecastHourSection();
+  createCurrentSection();
   createCite();
 }
 
