@@ -10,9 +10,13 @@ function createForm() {
   const search = document.createElement('img');
   search.src = './resources/search.svg';
   search.setAttribute('id', 'search');
+  const tempChange = document.createElement('div');
+  tempChange.setAttribute('id', 'tempchange');
+  tempChange.textContent = 'F';
 
   form.appendChild(input);
   form.appendChild(search);
+  form.appendChild(tempChange);
   middle.appendChild(form);
 }
 
