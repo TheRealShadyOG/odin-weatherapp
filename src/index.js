@@ -95,7 +95,6 @@ async function displayHourlyForecast(location, unit) {
   const forecastData = await getForecastsWeather(location);
   const hourlyData = forecastData[1];
   const containers = document.querySelectorAll('#forecasthour');
-  console.log(hourlyData);
 
   containers.forEach((ele, i) => {
     // Add each time
@@ -156,10 +155,24 @@ async function displayAstronomy(location) {
   sunset.textContent = 'Sunset ' + sunsetData;
 }
 
+// Display Current Data
+async function displayCurrent(location, unit) {
+  const currentData = await getCurrentWeather(location);
+  const condition = document.querySelector('#currentcondition');
+  condition.textContent = currentData.condition;
+  const humidity = document.querySelector('#currenthumidity');
+  const humidityData = `${currentData.humidity}% Humidity`;
+  humidity.textContent = humidityData;
+  const temp = document.querySelector('#currenttemp');
+  if (unit === 'F') {
+    getTempsFahrenheit(temp, currentData);
+  } else {
+    getTempsCelsius(temp, currentData);
+  }
+}
+
 displayLocation(location);
+displayCurrent(location, 'F');
 displayDailyForecast(location, 'F');
 displayHourlyForecast(location, 'F');
 displayAstronomy(location);
-
-// Temporary function calls
-getCurrentWeather(location);
