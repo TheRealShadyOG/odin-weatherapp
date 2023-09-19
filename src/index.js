@@ -10,6 +10,7 @@ loadPage();
 
 // Default location
 let location = 'medina saudi';
+let unit = 'F';
 
 // Form for searching for location
 const search = document.querySelector('#search');
@@ -171,8 +172,12 @@ async function displayCurrent(location, unit) {
   }
 }
 
-displayLocation(location);
-displayCurrent(location, 'F');
-displayDailyForecast(location, 'F');
-displayHourlyForecast(location, 'F');
-displayAstronomy(location);
+function loadWeather(location, unit) {
+  displayLocation(location);
+  displayCurrent(location, unit);
+  displayDailyForecast(location, unit);
+  displayHourlyForecast(location, unit);
+  displayAstronomy(location);
+}
+
+loadWeather(location, unit);
