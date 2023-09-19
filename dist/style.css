@@ -37,6 +37,7 @@ body {
   flex-direction: column;
   align-items: center;
   align-self: start;
+  gap: 16px;
 }
 
 #form {
@@ -71,7 +72,6 @@ body {
   align-items: center;
   text-align: center;
   color: #0e7490;
-  margin-top: 8px;
 }
 
 #location {
@@ -80,6 +80,21 @@ body {
 
 #localtime {
   font-size: 2vh;
+}
+
+#astronomy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #083344;
+  font-size: 1.3vh;
+  text-align: center;
+}
+
+#sun {
+  display: flex;
+  gap: 24px;
+  font-size: 1.4vh;
 }
 
 #daysforecast {
