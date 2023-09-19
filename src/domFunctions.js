@@ -64,9 +64,55 @@ function createLocationSection() {
   body.appendChild(container);
 }
 
+function createSideContainers() {
+  const body = document.querySelector('body');
+
+  const left = document.createElement('div');
+  left.setAttribute('id', 'left');
+  const right = document.createElement('div');
+  right.setAttribute('id', 'right');
+
+  body.appendChild(left);
+  body.appendChild(right);
+}
+
+function createForecastDaySection() {
+  const left = document.querySelector('#left');
+
+  const daysForecast = document.createElement('div');
+  daysForecast.setAttribute('id', 'daysforecast');
+
+  for (let i = 0; i < 3; i++) {
+    const forecastDay = document.createElement('div');
+    forecastDay.setAttribute('id', 'forecastday');
+
+    const forecastDate = document.createElement('div');
+    forecastDate.setAttribute('id', 'dayforecastdate');
+    const forecastCondition = document.createElement('div');
+    forecastCondition.setAttribute('id', 'dayforecastcondition');
+    const forecastTemp = document.createElement('div');
+    forecastTemp.setAttribute('id', 'dayforecasttemp');
+    const avg = document.createElement('div');
+    const high = document.createElement('div');
+    const low = document.createElement('div');
+
+    forecastTemp.appendChild(avg);
+    forecastTemp.appendChild(high);
+    forecastTemp.appendChild(low);
+    forecastDay.appendChild(forecastDate);
+    forecastDay.appendChild(forecastCondition);
+    forecastDay.appendChild(forecastTemp);
+    daysForecast.appendChild(forecastDay);
+  }
+
+  left.appendChild(daysForecast);
+}
+
 function loadPage() {
+  createSideContainers();
   createForm();
   createLocationSection();
+  createForecastDaySection();
   createCite();
 }
 
