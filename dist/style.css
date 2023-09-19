@@ -3,7 +3,27 @@
   src: url(./resources/Mooli-Regular.ttf);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'myfont', sans-serif;
+}
+
 body {
   background-image: url(./resources/background.jpg);
   background-size: 100vw 100vh;
+}
+
+#cite {
+  position: fixed;
+  bottom: 4px;
+  right: 4px;
+  color: #083344;
+  font-size: 1vh;
+}
+
+#cite > a {
+  text-decoration: none;
+  color: #083344;
+  font-weight: bold;
 }
