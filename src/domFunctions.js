@@ -111,6 +111,33 @@ function createForecastDaySection() {
   left.appendChild(daysForecast);
 }
 
+function createCurrentSection() {
+  const left = document.querySelector('#left');
+
+  const current = document.createElement('div');
+  current.setAttribute('id', 'current');
+
+  const title = document.createElement('div');
+  title.setAttribute('id', 'currenttitle');
+  title.textContent = 'Today';
+  const condition = document.createElement('div');
+  condition.setAttribute('id', 'condition');
+  const humidity = document.createElement('div');
+  humidity.setAttribute('id', 'humidity');
+  const temp = document.createElement('div');
+  temp.setAttribute('id', 'temp');
+  const feelsLike = document.createElement('div');
+  const real = document.createElement('div');
+
+  temp.appendChild(feelsLike);
+  temp.appendChild(real);
+  current.appendChild(title);
+  current.appendChild(condition);
+  current.appendChild(humidity);
+  current.appendChild(temp);
+  left.appendChild(current);
+}
+
 function createAstronomySection() {
   const middle = document.querySelector('#middle');
 
@@ -167,6 +194,7 @@ function loadPage() {
   createSideContainers();
   createForm();
   createLocationSection();
+  createCurrentSection();
   createAstronomySection();
   createForecastDaySection();
   createForecastHourSection();
