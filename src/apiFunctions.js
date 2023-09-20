@@ -6,7 +6,8 @@ async function fetchForecast(location) {
   if (response.status === 200) {
     return response.json();
   } else {
-    alert('Invalid Location');
+    const response = await fetch(url + 'medina saudi');
+    return response.json();
   }
 }
 
