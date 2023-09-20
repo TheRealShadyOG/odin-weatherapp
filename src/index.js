@@ -197,3 +197,141 @@ function loadWeather(location, unit) {
 }
 
 loadWeather(location, unit);
+
+// Hourly control buttons change with press
+function getHourlyContainers() {
+  const hourContainers = document.querySelectorAll('#forecasthour');
+  const groupOfGroups = [];
+  // Hourly containers in groups of 3
+  for (let i = 0; i < 23; i += 3) {
+    let index = i;
+    const group = [];
+    group.push(hourContainers[index]);
+    index++;
+    group.push(hourContainers[index]);
+    index++;
+    group.push(hourContainers[index]);
+    groupOfGroups.push(group);
+  }
+  return groupOfGroups;
+}
+
+// Event listener for next button
+const nextButton = document.querySelector('#nextbutton');
+nextButton.addEventListener('click', moveHourlyNext);
+
+function moveHourlyNext() {
+  if (currentVisible === groups[0]) {
+    displayGroup1();
+  } else if (currentVisible === groups[1]) {
+    displayGroup2();
+  } else if (currentVisible === groups[2]) {
+    displayGroup3();
+  } else if (currentVisible === groups[3]) {
+    displayGroup4();
+  } else if (currentVisible === groups[4]) {
+    displayGroup5();
+  } else if (currentVisible === groups[5]) {
+    displayGroup6();
+  } else if (currentVisible === groups[6]) {
+    displayGroup7();
+  } else if (currentVisible === groups[7]) {
+    displayGroup0();
+  }
+}
+
+// Event listener for previous button
+const previousButton = document.querySelector('#previousbutton');
+previousButton.addEventListener('click', moveHourlyPrevious);
+
+function moveHourlyPrevious() {
+  if (currentVisible === groups[0]) {
+    displayGroup7();
+  } else if (currentVisible === groups[1]) {
+    displayGroup0();
+  } else if (currentVisible === groups[2]) {
+    displayGroup1();
+  } else if (currentVisible === groups[3]) {
+    displayGroup2();
+  } else if (currentVisible === groups[4]) {
+    displayGroup3();
+  } else if (currentVisible === groups[5]) {
+    displayGroup4();
+  } else if (currentVisible === groups[6]) {
+    displayGroup5();
+  } else if (currentVisible === groups[7]) {
+    displayGroup6();
+  }
+}
+
+// Functions to swap displayed groups
+function swapGroup(visible, hidden) {
+  visible.forEach((ele) => {
+    ele.classList.remove('visible');
+    ele.classList.add('hidden');
+  });
+  hidden.forEach((ele) => {
+    ele.classList.remove('hidden');
+    ele.classList.add('visible');
+  });
+}
+
+// Functions to display group
+const groups = getHourlyContainers();
+// Default current visible group
+let currentVisible = groups[0];
+function displayGroup0() {
+  const visible = currentVisible;
+  const group0 = groups[0];
+  swapGroup(visible, group0);
+  currentVisible = group0;
+}
+
+function displayGroup1() {
+  const visible = currentVisible;
+  const group1 = groups[1];
+  swapGroup(visible, group1);
+  currentVisible = group1;
+}
+
+function displayGroup2() {
+  const visible = currentVisible;
+  const group2 = groups[2];
+  swapGroup(visible, group2);
+  currentVisible = group2;
+}
+
+function displayGroup3() {
+  const visible = currentVisible;
+  const group3 = groups[3];
+  swapGroup(visible, group3);
+  currentVisible = group3;
+}
+
+function displayGroup4() {
+  const visible = currentVisible;
+  const group4 = groups[4];
+  swapGroup(visible, group4);
+  currentVisible = group4;
+}
+
+function displayGroup5() {
+  const visible = currentVisible;
+  const group5 = groups[5];
+  swapGroup(visible, group5);
+  currentVisible = group5;
+}
+
+function displayGroup6() {
+  const visible = currentVisible;
+  const group6 = groups[6];
+  swapGroup(visible, group6);
+  currentVisible = group6;
+}
+
+function displayGroup7() {
+  const visible = currentVisible;
+  const group7 = groups[7];
+  swapGroup(visible, group7);
+  currentVisible = group7;
+}
