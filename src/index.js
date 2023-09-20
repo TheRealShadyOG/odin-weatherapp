@@ -35,8 +35,19 @@ search.addEventListener('click', updateLocation);
 async function updateLocation() {
   const searchBar = document.querySelector('input');
   const newLocation = searchBar.value;
-  location = newLocation;
-  loadWeather(location, unit);
+  if (newLocation !== '') {
+    location = newLocation;
+    loadWeather(location, unit);
+  }
+}
+// Enter button confirms search
+addEventListener('keypress', enterToSearch);
+
+function enterToSearch(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    updateLocation();
+  }
 }
 
 // Display data about location
